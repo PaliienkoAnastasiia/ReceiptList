@@ -12,8 +12,8 @@ final class RecipeListPresenter {
     var interactor: RecipeListInteractorProtocol
     weak var view: RecipeListViewProtocol?
 
-    init(with interactor: RecipeListInteractor,
-         wireframe: RecipeListWireframe,
+    init(with interactor: RecipeListInteractorProtocol,
+         wireframe: RecipeListWireframeProtocol,
          view: RecipeListViewProtocol) {
         self.interactor = interactor
         self.wireframe = wireframe

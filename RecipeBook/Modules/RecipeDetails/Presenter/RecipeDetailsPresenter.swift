@@ -13,7 +13,8 @@ final class RecipeDetailsPresenter {
     var interactor: RecipeDetailsInteractorProtocol
     weak var view: RecipeDetailsViewProtocol?
 
-    init(with interactor: RecipeDetailsInteractor, view: RecipeDetailsViewProtocol) {
+    init(with interactor: RecipeDetailsInteractorProtocol,
+         view: RecipeDetailsViewProtocol) {
         self.interactor = interactor
         self.view = view
     }
