@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeDetailsViewController" customModule="RecipeBook" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="Fp9-0Z-hGS" id="IeD-p5-Ebp"/>
+                <outlet property="detailsLabel" destination="egW-Pc-K5x" id="ilp-eQ-wqy"/>
+                <outlet property="imageView" destination="gdU-hs-Deb" id="JSu-Jx-AIN"/>
+                <outlet property="titleLabel" destination="S3t-Bw-4Zu" id="hVj-Fe-YbX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ki0-Fa-VIV">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="353.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fu5-fW-6s5">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-hs-Deb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                                    <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Fp9-0Z-hGS">
+                                    <rect key="frame" x="177.5" y="130.5" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Fu5-fW-6s5" secondAttribute="height" multiplier="4:3" id="8O3-fM-9Gb"/>
+                                <constraint firstAttribute="trailing" secondItem="gdU-hs-Deb" secondAttribute="trailing" id="94p-i5-EO8"/>
+                                <constraint firstAttribute="bottom" secondItem="gdU-hs-Deb" secondAttribute="bottom" id="DIn-gt-kec"/>
+                                <constraint firstItem="gdU-hs-Deb" firstAttribute="top" secondItem="Fu5-fW-6s5" secondAttribute="top" id="FdR-Gk-QRf"/>
+                                <constraint firstItem="gdU-hs-Deb" firstAttribute="leading" secondItem="Fu5-fW-6s5" secondAttribute="leading" id="RTt-23-HQp"/>
+                                <constraint firstItem="Fp9-0Z-hGS" firstAttribute="centerY" secondItem="Fu5-fW-6s5" secondAttribute="centerY" id="aJ3-pA-Jcg"/>
+                                <constraint firstItem="Fp9-0Z-hGS" firstAttribute="centerX" secondItem="Fu5-fW-6s5" secondAttribute="centerX" id="hjW-rD-cAf"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3t-Bw-4Zu">
+                            <rect key="frame" x="20" y="297.5" width="335" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egW-Pc-K5x">
+                            <rect key="frame" x="20" y="334" width="335" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="S3t-Bw-4Zu" firstAttribute="leading" secondItem="ki0-Fa-VIV" secondAttribute="leading" constant="20" id="ASZ-JR-T26"/>
+                        <constraint firstItem="egW-Pc-K5x" firstAttribute="leading" secondItem="ki0-Fa-VIV" secondAttribute="leading" constant="20" id="Msz-f9-cAK"/>
+                        <constraint firstAttribute="trailing" secondItem="S3t-Bw-4Zu" secondAttribute="trailing" constant="20" id="WOJ-7j-4hh"/>
+                        <constraint firstAttribute="trailing" secondItem="egW-Pc-K5x" secondAttribute="trailing" constant="20" id="a6y-ea-tjL"/>
+                        <constraint firstAttribute="trailing" secondItem="Fu5-fW-6s5" secondAttribute="trailing" id="jLD-t1-F2N"/>
+                        <constraint firstItem="Fu5-fW-6s5" firstAttribute="leading" secondItem="ki0-Fa-VIV" secondAttribute="leading" id="tm8-Hr-SWQ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ki0-Fa-VIV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="J48-X0-7XQ"/>
+                <constraint firstAttribute="trailing" secondItem="ki0-Fa-VIV" secondAttribute="trailing" id="SGl-aL-a11"/>
+                <constraint firstItem="ki0-Fa-VIV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sqn-UJ-7Bv"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ki0-Fa-VIV" secondAttribute="bottom" id="cDB-mI-ZBe"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="32.799999999999997" y="52.623688155922046"/>
+        </view>
+    </objects>
+</document>

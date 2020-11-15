@@ -20,9 +20,10 @@ final class RecipeListPresenter {
         self.view = view
     }
 
-    func loadData() {
+    //MARK:- Private
+    private func loadData() {
         view?.showLoader(true)
-        
+
         interactor.loadData { [weak self] recipes in
             self?.view?.update(with: recipes)
             self?.view?.showLoader(false)

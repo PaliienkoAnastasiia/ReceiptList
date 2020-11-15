@@ -12,8 +12,7 @@ class RecipeListCell: UITableViewCell {
 
     static let identifier = "RecipeListCell"
 
-    @IBOutlet private  var photoImageView: UIImageView!
-    
+    @IBOutlet private var photoImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var detailsLabel: UILabel!
 

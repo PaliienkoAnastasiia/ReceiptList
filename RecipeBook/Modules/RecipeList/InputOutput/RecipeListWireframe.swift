@@ -15,5 +15,10 @@ final class RecipeListWireframe {
 extension RecipeListWireframe: RecipeListWireframeProtocol {
 
     func showRecipeDetails(_ recipe: Recipe) {
+        guard let navigationController = viewController?.navigationController else {
+            return
+        }
+        RecipeDetailsBuilder.show(in: navigationController,
+                                  with: recipe)
     }
 }

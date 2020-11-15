@@ -15,7 +15,7 @@ final class RecipeListViewController: UIViewController {
     private var recipes: [Recipe] = []
 
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
 
     //MARK:- View Lifecycle
     override func viewDidLoad() {
