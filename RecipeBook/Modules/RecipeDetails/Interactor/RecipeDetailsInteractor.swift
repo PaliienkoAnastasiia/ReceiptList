@@ -10,12 +10,17 @@ import UIKit
 
 final class RecipeDetailsInteractor {
 
-    let recipe: Recipe
+    private let aRecipe: Recipe
 
     init(recipe: Recipe) {
-        self.recipe = recipe
+        self.aRecipe = recipe
     }
 }
 
 extension RecipeDetailsInteractor: RecipeDetailsInteractorProtocol {
+    
+    var recipe: Recipe {
+        return aRecipe
+    }
+
 }
