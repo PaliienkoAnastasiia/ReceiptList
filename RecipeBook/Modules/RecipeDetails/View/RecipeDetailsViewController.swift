@@ -27,6 +27,8 @@ final class RecipeDetailsViewController: UIViewController {
 
     //MARK:- Private
     private func setupUI() {
+        navigationController?.navigationBar.isTranslucent = false
+        edgesForExtendedLayout = []
         titleLabel.text = ""
         detailsLabel.text = ""
     }

@@ -11,7 +11,7 @@ import UIKit
 final class RecipeListBuilder {
 
     class func viewController() -> RecipeListViewController {
-        let interactor = RecipeListInteractor()
+        let interactor = RecipeListInteractor(dataProvider: RecipeDataProvider())
         let wireframe = RecipeListWireframe()
         let viewController = RecipeListViewController.init(nibName: "RecipeListViewController", bundle: nil)
         let presenter = RecipeListPresenter.init(with: interactor, wireframe: wireframe, view: viewController)
