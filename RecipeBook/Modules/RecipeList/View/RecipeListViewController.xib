@@ -2,13 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeListViewController" customModule="RecipeBook" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="PLd-Wc-wcD" id="U44-2u-wMm"/>
                 <outlet property="tableView" destination="XAh-YD-Bye" id="KDo-uO-zgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,12 +22,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PLd-Wc-wcD">
+                    <rect key="frame" x="177.5" y="291.5" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="XAh-YD-Bye" secondAttribute="trailing" id="4KL-jo-hY2"/>
+                <constraint firstItem="PLd-Wc-wcD" firstAttribute="centerX" secondItem="XAh-YD-Bye" secondAttribute="centerX" id="G1W-hl-yqu"/>
                 <constraint firstItem="XAh-YD-Bye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NFy-DU-36x"/>
                 <constraint firstAttribute="bottom" secondItem="XAh-YD-Bye" secondAttribute="bottom" id="dyZ-GM-gFE"/>
+                <constraint firstItem="PLd-Wc-wcD" firstAttribute="centerY" secondItem="XAh-YD-Bye" secondAttribute="centerY" id="gDO-uB-V4t"/>
                 <constraint firstItem="XAh-YD-Bye" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ov0-US-8q4"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

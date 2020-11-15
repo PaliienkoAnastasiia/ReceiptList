@@ -16,10 +16,10 @@ protocol RecipeListInteractorProtocol: class {
 
 protocol RecipeListViewProtocol: class {
     func update(with recipes: [Recipe])
+    func showLoader(_ show: Bool)
 }
 
 protocol RecipeListViewDelegate: class {
     func onViewDidLoad()
-    func onReloadButtonTapped()
     func onRecipeSelected(_ recipe: Recipe)
 }

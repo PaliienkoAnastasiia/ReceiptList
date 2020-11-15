@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class RecipeListViewController: UIViewController {
 
@@ -14,6 +15,7 @@ final class RecipeListViewController: UIViewController {
     private var recipes: [Recipe] = []
 
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     //MARK:- View Lifecycle
     override func viewDidLoad() {
@@ -21,7 +23,6 @@ final class RecipeListViewController: UIViewController {
 
         title = "Recipes"
         setupTableView()
-        setupBarButtons()
 
         presenter?.onViewDidLoad()
     }
@@ -34,19 +35,10 @@ final class RecipeListViewController: UIViewController {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
 
         let cellNib = UINib(nibName: "RecipeListCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: RecipeListCell.identifier)
-    }
-
-    private func setupBarButtons() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
-                                                            target: self,
-                                                            action: #selector(RecipeListViewController.reloadButtonAction))
-    }
-
-    @objc private func reloadButtonAction() {
-        presenter?.onReloadButtonTapped()
     }
 }
 
@@ -56,6 +48,12 @@ extension RecipeListViewController: RecipeListViewProtocol {
     func update(with recipes: [Recipe]) {
         self.recipes = recipes
         tableView.reloadData()
+    }
+
+    func showLoader(_ show: Bool) {
+        show ?
+            activityIndicator.startAnimating() :
+            activityIndicator.stopAnimating()
     }
 }
 
@@ -71,9 +69,30 @@ extension RecipeListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let recipe = recipes[indexPath.row]
+        cell.recipeImageId = recipe.imageUrlString ?? ""
         cell.update(title: recipe.name,
-                    details: recipe.details,
-                    imageUrlString: recipe.imageUrlString)
+                    details: recipe.details)
+
+        // clean up before loading
+        cell.update(photo: nil)
+
+        // image loading
+        if let imageUrlString = recipe.imageUrlString,
+            let url = URL(string: imageUrlString) {
+            SDWebImageManager.shared.loadImage(
+                with: url,
+                options: [.retryFailed, .refreshCached],
+                progress: nil,
+                completed: { [copiedImageUrl = imageUrlString] (image, data, error, cacheType, finished, url) in
+                    if (cell.recipeImageId == copiedImageUrl) {
+                        cell.update(photo: image)
+                        cell.contentView.setNeedsLayout()
+                    }
+            })
+        } else {
+            cell.update(photo: nil)
+        }
+
         return cell
     }
 

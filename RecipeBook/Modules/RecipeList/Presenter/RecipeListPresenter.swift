@@ -21,8 +21,11 @@ final class RecipeListPresenter {
     }
 
     func loadData() {
+        view?.showLoader(true)
+        
         interactor.loadData { [weak self] recipes in
             self?.view?.update(with: recipes)
+            self?.view?.showLoader(false)
         }
     }
 }
@@ -31,10 +34,6 @@ final class RecipeListPresenter {
 extension RecipeListPresenter: RecipeListViewDelegate {
 
     func onViewDidLoad() {
-        loadData()
-    }
-
-    func onReloadButtonTapped() {
         loadData()
     }
 

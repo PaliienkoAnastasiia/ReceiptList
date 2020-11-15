@@ -14,9 +14,10 @@ class RecipeListCell: UITableViewCell {
 
     @IBOutlet private  var photoImageView: UIImageView!
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var detailsLabel: UILabel!
+
+    var recipeImageId: String = ""
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,15 +27,12 @@ class RecipeListCell: UITableViewCell {
     }
 
     func update(title: String?,
-                details: String?,
-                imageUrlString: String?) {
+                details: String?) {
         titleLabel.text = title
         detailsLabel.text = details
     }
-    
-    private func showLoader(_ show: Bool) {
-        show ?
-            activityIndicator.startAnimating() :
-            activityIndicator.stopAnimating()
+
+    func update(photo: UIImage?) {
+        photoImageView.image = photo
     }
 }
